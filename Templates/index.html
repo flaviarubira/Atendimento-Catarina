@@ -1,1 +1,27 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Tarifas</title>
+</head>
+<body>
+    <h1>Sistema de Tarifas de Aeronaves</h1>
+    <form method="POST">
+        <label for="matricula">Insira a matrícula da aeronave:</label>
+        <input type="text" id="matricula" name="matricula" required>
+        <button type="submit">Buscar</button>
+    </form>
+    {% if modelo %}
+        <h2>Informações da Aeronave</h2>
+        <p>Modelo: {{ modelo }}</p>
+        <p>MTOW: {{ mtow }} kg</p>
+        <h3>Tarifas</h3>
+        <ul>
+            {% for tarifa in tarifas %}
+                <li>{{ tarifa }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
